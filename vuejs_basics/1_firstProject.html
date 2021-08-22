@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>{{title}}</h3>
+        <button>{{buttontitle}}</button>
+        <p v-text="paragraph"></p>
+        <a :href="link" v-bind:data-id="data-id">Google</a>     <!-- v-bind: yerine sadece : da kullanabiliriz--> 
+        <!-- Kendi attributelarimizi da baglayabiliriz-->
+    <p v-html="details"></p>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                title:"test baslik",
+                buttontitle:"tikla gelsin",
+                paragraph:"lorem ipsum",
+                link:"https://www.google.de/",
+                dataId:"1",
+                details:"<b>Bu bir haber detayidir</b>"
+            }
+        });
+    </script>
+</body>
+</html>

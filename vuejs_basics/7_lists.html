@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        .red{
+            background-color: coral;
+        }
+        .green{
+            background-color: limegreen;
+        }
+        .warning{
+            color:red;
+            padding-left: 2rem;
+        }
+        .productWrapper{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in list">{{item}}</li> <!--{{}} string interplution-->
+            <br>
+            <li v-for="item in list" v-text="item"></li> <!--böyle de olur-->
+            <br>
+            <li v-for="item in 10">{{ item }}</li>
+            <br>
+
+            <div v-for="(value, key) in personel">
+                <strong>{{key}}:</strong><span>{{value}}</span>
+            </div>
+            <br>
+            <input type="text" v-model="sellCount">
+            <!-- <div v-for="product in productList" v-if="product.count>0"> -->
+            <div class="productWrapper" v-for="product in productList" :class="backgroundByCount(product)">
+                <ul>
+                    <li>{{product.title}}</li>
+                    <li>{{product.price}}</li>
+                    <li>{{product.count}}</li>
+                    <button @click="sellProduct(product)" :disabled="product.count<=0">Sale</button>
+                </ul>
+                <br>
+            </div>
+            <p v-if="sellWarning" class="warning">The quantity you entered is more than the stock quantity!</p>
+        </ul>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                list:["elma","armut","kiraz"],
+                sellCount:0,
+                sellWarning:false,
+                personel:{
+                    name:"Ömer",
+                    lastName:"iliski",
+                    email:"omeriliski@gmail.com"
+                },
+                productList:[{
+                    title:"MacBook Pro",
+                    price:100,
+                    count:0
+                },
+                {
+                    title:"iPhone",
+                    price:50,
+                    count:100
+                },
+                {
+                    title:"Samsung",
+                    price:40,
+                    count:15
+                },]
+            },
+            methods:{
+                sellProduct(product){
+                    if(this.sellCount>product.count){
+                        this.sellWarning=true;
+                    }else{
+                        product.count-=this.sellCount;
+                        this.sellWarning=false;
+                    }
+                },
+                backgroundByCount(product){
+                    return {'green':product.count>0, 'red':product.count <=0}
+                }
+            }
+        });
+    </script>
+</body>
+</html>

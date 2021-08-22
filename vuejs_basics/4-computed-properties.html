@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="age"/>
+        <p>{{ age >= 18 ? "resittir" : "resit degildir"}}</p>
+        <p>{{ ageWriter() }}</p>
+        <p>{{ ageWriterComp }}</p>
+        <p>{{ number }}</p>
+        <button @click="number++">Increase</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                age:0,
+                number:0
+            },
+            methods:{
+                ageWriter(){
+                    console.log("Method run")
+                    return this.age >= 18 ? "resittir" : "resit degildir"
+                }
+            },
+            computed:{
+                ageWriterComp(){
+                    console.log("comp run")
+                    return this.age >= 18 ? "resittir" : "resit degildir"
+                }
+            },
+            watch:{
+                age(newValue, oldValue){
+                    console.log("New Value:", newValue, " Old Value:", oldValue);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
