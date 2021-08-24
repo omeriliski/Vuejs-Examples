@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="exercise">
+   <!-- 1) Interpolation yani {{}} Syntax'ını kullanarak <p> elementinin içeriğini Name ve Age verileriyle doldurun-->
+    <p>VueJS Muazzam bir Framework - {{name}} {{age}}</p>
+    <!-- 2) Yaşınızı 5 ile çarpıp <p> içerisinde yazdırınız -->
+    
+    <p>{{calc(age)}}</p>
+
+    <!-- 3) Fonksiyon çağırarak 0 ile 1 arasında bir sayı üretip <p> içerisinde yazdırınız (Math.random()) -->
+    <p>{{getRandom()}}</p>
+
+    <!-- 4) Google üzerinden bulacağınız herhangi bir fotoğrafı <img> elementinde gösterme işlemini yapınızı. Bunu yaparken "src" attribute' una bind etmeyi unutmayınız -->
+    <img v-bind:src="vueLink" alt="">
+    <!-- 5) Name değişkeninin değerinin <input /> içine yazdığınız değer ile anlık olarak değiştirilmesini sağlayınız. ("value" attribute kullanarak) -->
+    <div>
+        <input type="text" v-on:input="changeName">
+    </div>
+</div>
+<script>
+    new Vue({
+        el:"#exercise",
+        data:{
+            name:"Ömer",
+            age:39,
+            vueLink:"https://v3.vuejs.org/logo.png"
+        },
+        methods: {
+            calc(age){return age*5},
+            getRandom(){return Math.random()} ,
+            changeName(event){this.name=event.target.value}
+        },
+    })
+</script>
