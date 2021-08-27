@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <!-- v-for -->
+    <div id="app">
+        <ul>
+            <!-- key icin product verdigimizde index'i degil keyde direkt elemanin kendisini tutuyor -->
+            <li v-for="(product,index) in products" :key="product">{{index}}-{{product}}</li>   
+        </ul>
+        <hr>
+        <template v-for="(product,index) in products">
+            <h3>{{index}}</h3>     
+            <p>{{product}}</p>           
+        </template>
+        <hr>
+        <ul>
+            <li v-for="person in people">
+                <ul>
+                    <li v-for="(value,key) in person">{{key}}:{{value}}</li>
+                    <br>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+        <span v-for="number in 10">{{number}}</span>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+               products:["Monitör","Klavye","Aski","Masa"],
+               people:[
+                   {name:"Ömer", email:"omer@gmail.com"},
+                   {name:"Osman", email:"osman@gmail.com"},
+                   {name:"Selman", email:"selman@gmail.com"},
+                   {name:"Burak", email:"burak@gmail.com"}
+               ]
+            }
+        })
+    </script>
+</body>
+</html>
