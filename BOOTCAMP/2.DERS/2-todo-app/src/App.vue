@@ -2,39 +2,40 @@
   <div class="container">
     <h3 class="text-center">Todo App</h3>
     <hr class="my-2" />
-    <label for="todoText"></label>
-    <input
-      type="text"
-      id="todoText"
-      placeholder="Add todo..."
-      v-model="todoText"
-      @keydown.enter="addTodo"
-    />
-    <ul>
-      <li
-        v-for="todo in todoList"
-        :key="todo.id"
-        class="d-flex justify-content-between align-items-center"
-      >
-        <span>{{ todo }}</span>
-        <button class="sm red" @click="deleteTodo(todo)">Sil</button>
-      </li>
-    </ul>
-    <small class="d-flex justify-content-end green mt-2">todo sayisi: {{todoList.length}}</small>
+    <AddSection/>
+    <TodoList :todoList="todoList"/>
+    <ResultBar :todoListLength="todoList.length"/>
   </div>
 </template>
 
 <script>
+import AddSection from '@/components/AddSection'
+import TodoList from '@/components/TodoList'
+import ResultBar from '@/components/ResultBar'
 export default {
+  components:{
+    AddSection,
+    TodoList,
+    ResultBar
+  },
+  created() {
+    this.todoList= [
+      {text:"aaa", id:new Date().getTime()},
+      {text:"bbb", id:new Date().getTime()},
+      {text:"ccc", id:new Date().getTime()}]
+  },
   data() {
     return {
       todoText: "",
-      todoList: [],
+      todoList:[]
     };
   },
   methods: {
     addTodo() {
-      this.todoList.push(this.todoText);
+      this.todoList.push({
+        id:new Date().getTime(),
+        text:this.todoText
+      });
       this.todoText = "";
     },
     deleteTodo(todo){
