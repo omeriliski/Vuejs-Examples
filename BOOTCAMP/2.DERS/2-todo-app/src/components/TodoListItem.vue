@@ -4,7 +4,7 @@
       class="d-flex justify-content-between align-items-center"
     >
       <span>{{ todoItem.text}}</span>
-      <button class="sm red" @click="deleteTodo(todo)">Sil</button>
+      <button class="sm red" @click="$emit('delete-todo', todoItem)">Sil</button>
     </li>
   </div>
 </template>

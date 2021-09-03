@@ -2,8 +2,8 @@
   <div class="container">
     <h3 class="text-center">Todo App</h3>
     <hr class="my-2" />
-    <AddSection/>
-    <TodoList :todoList="todoList"/>
+    <AddSection @add-todo="addTodo"/>
+    <TodoList :todoList="todoList" @delete-todo="deleteTodo"/>
     <ResultBar :todoListLength="todoList.length"/>
   </div>
 </template>
@@ -19,24 +19,19 @@ export default {
     ResultBar
   },
   created() {
-    this.todoList= [
-      {text:"aaa", id:new Date().getTime()},
-      {text:"bbb", id:new Date().getTime()},
-      {text:"ccc", id:new Date().getTime()}]
+    this.todoList= []
   },
   data() {
     return {
-      todoText: "",
       todoList:[]
     };
   },
   methods: {
-    addTodo() {
+    addTodo(todoText) {
       this.todoList.push({
         id:new Date().getTime(),
-        text:this.todoText
+        text:todoText
       });
-      this.todoText = "";
     },
     deleteTodo(todo){
       this.todoList = this.todoList.filter(t=> t!=todo)
