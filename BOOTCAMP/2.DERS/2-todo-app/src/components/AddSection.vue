@@ -6,22 +6,28 @@
       id="todoText"
       placeholder="Add todo..."
       v-model="todoText"
-      @keydown.enter="addTodo"
+      @keydown.enter="addNewTodo(todoText)"
     />
   </div>
 </template>
 <script>
 export default {
+  props:{
+    addNewTodo:{
+      type:Function,
+      required:true
+    }
+  },
   data() {
     return {
       todoText:""
     }
   },
-  methods: {
-    addTodo(){
-      this.$emit("add-todo",this.todoText)
-      this.todoText = "";
-    }
+  methods: { //
+    // addTodo(){
+    //   this.$emit("add-todo",this.todoText)
+    //   this.todoText = "";
+    // }
   },
 }
 </script>

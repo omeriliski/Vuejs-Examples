@@ -2,7 +2,8 @@
   <div class="container">
     <h3 class="text-center">Todo App</h3>
     <hr class="my-2" />
-    <AddSection @add-todo="addTodo"/>
+    <!-- <AddSection @add-todo="addNewTodo"/> -->
+    <AddSection :addNewTodo="addNewTodo"/>
     <TodoList :todoList="todoList" @delete-todo="deleteTodo"/>
     <ResultBar :todoListLength="todoList.length"/>
   </div>
@@ -27,7 +28,7 @@ export default {
     };
   },
   methods: {
-    addTodo(todoText) {
+    addNewTodo(todoText) {
       this.todoList.push({
         id:new Date().getTime(),
         text:todoText
