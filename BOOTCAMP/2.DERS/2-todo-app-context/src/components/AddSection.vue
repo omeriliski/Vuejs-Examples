@@ -15,12 +15,13 @@
 </template>
 <script>
 export default {
-  props:{
-    addNewTodo:{
-      type:Function,
-      required:true
-    }
-  },
+  // props:{
+  //   addNewTodo:{
+  //     type:Function,
+  //     required:true
+  //   }
+  // },
+  inject:["addNewTodo"],
   data() {
     return {
       todoText:""
@@ -34,5 +35,4 @@ export default {
   },
 }
 </script>
-// v-model="todoText"
-// @keydown.enter="addTodo"
+
