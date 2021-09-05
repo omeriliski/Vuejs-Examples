@@ -1,26 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Modal>
+    <template #title>
+      <h1>Modal title</h1>
+    </template>
+    <template v-slot:content>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque neque nobis
+      maxime harum repellat a minus libero autem reiciendis corporis
+      perspiciatis magni eaque voluptatum placeat illo, explicabo accusamus
+      deleniti! Consequatur.
+    </template>
+  </Modal>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Modal from '@/components/Modal'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    Modal
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

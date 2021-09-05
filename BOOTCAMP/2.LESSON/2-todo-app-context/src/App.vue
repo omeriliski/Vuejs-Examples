@@ -48,9 +48,6 @@ export default {
     },
     deleteTodo(todoItem){
       this.provideData.todoList = this.provideData.todoList.filter(t=> t!=todoItem);
-      // let index = this.todoList.indexOf(todo);
-      // let removed = this.todoList.splice(index,1);
-      // console.log(removed);
     }
   },
 };
