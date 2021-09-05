@@ -5,12 +5,13 @@
     <div class="my-2">
       <input type="text" placeholder="listeyi gir" @keydown.enter="saveData" />
     </div>
-    <ul>
-      <li v-for="item in itemList" :key="item.id" class="d-flex justify-content-between align-items-center">
+    <ul v-if="itemList.length>0">
+      <li  v-for="item in itemList" :key="item.id" class="d-flex justify-content-between align-items-center">
         <span>{{item.title}}</span>
         <button class="sm red" @click="deleteData(item)">Sil</button>
       </li>
     </ul>
+    <div v-else class="bg-blue p-3 text-white">Listede hic bir eleman yoktur </div>
     <small class="text-blue mt-2 d-flex justify-content-end align-items-center"
       >eleman sayisi:{{itemList.length}}
     </small>
