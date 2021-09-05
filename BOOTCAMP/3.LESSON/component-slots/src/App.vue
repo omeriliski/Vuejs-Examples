@@ -1,6 +1,6 @@
 <template>
   <Modal>
-    <template #title>
+    <template #title> <!-- v-slot kisa yazimi #--> 
       <h1>Modal title</h1>
     </template>
     <template v-slot:content>
