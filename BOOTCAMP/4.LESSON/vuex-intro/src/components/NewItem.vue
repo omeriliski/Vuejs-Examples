@@ -21,7 +21,8 @@ export default {
         title: this.urunAdi,
         type: this.urunTuru,
       }
-      this.$store.commit("newItem",itemData);
+      // this.$store.commit("newItem",itemData);   //mutaitions called by using commit
+      this.$store.dispatch("newItem",itemData); 
       // this.$store.state.itemList.push({
       //   
       // });

@@ -24,6 +24,13 @@ const store=createStore({
             state.itemList.push(item);
         }
     },
+    actions:{
+        newItem({commit},item){
+            setTimeout(() => {
+                commit("newItem",item);
+            }, 1000);
+        }
+    },
     getters:{
         // woodItems:state=>state.itemList.filter(i=>i.type=="mobilya"),
         woodItems:state=>state.itemList,

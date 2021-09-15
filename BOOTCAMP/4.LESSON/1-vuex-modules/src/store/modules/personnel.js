@@ -1,0 +1,26 @@
+export default {
+    namespaced:true,
+    state:{
+        personnelList:[
+            {
+                name:"Kristin",
+                id:1
+            },
+            {
+                name:"Jay",
+                id:2
+            },
+            {  
+                name:"Antonia",
+                id:3
+            }]
+    },
+    mutations:{
+        setPersonnel(state,personnel){
+            state.personnelList.push(personnel);
+        }
+    },
+    getters:{
+        _personnelList:state=>state.personnelList
+    }
+}
