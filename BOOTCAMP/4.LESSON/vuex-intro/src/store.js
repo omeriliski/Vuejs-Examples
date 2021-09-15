@@ -19,8 +19,14 @@ const store=createStore({
             {id:5, title:"bardak", type:"plastik"},
         ]
     },
+    mutations:{
+        newItem(state,item){
+            state.itemList.push(item);
+        }
+    },
     getters:{
-        woodItems:state=>state.itemList.filter(i=>i.type=="mobilya"),
+        // woodItems:state=>state.itemList.filter(i=>i.type=="mobilya"),
+        woodItems:state=>state.itemList,
         activeUser(state){
             const user={
                 ...state.user
