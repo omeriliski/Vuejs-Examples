@@ -19,7 +19,6 @@ export default {
   computed: {
     ...mapGetters({
       studentList: ["student/_studentList"],
-      companyList:["company/_companyList"]
     }),
   },
 };

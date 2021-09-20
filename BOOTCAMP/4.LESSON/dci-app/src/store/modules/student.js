@@ -13,6 +13,10 @@ export default{
             name:"Ashley",
             lastName:"Jiang"
         },
+        {
+            name:"Henrik",
+            lastName:"Kuerschner"
+        }
         ]
     },
     getters:{
