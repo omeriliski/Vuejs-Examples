@@ -8,14 +8,20 @@ const routes=[
     },
     {
         name:"LoginPage",
-        path:"/Login",
+        path:"/login",
         component:()=>import("@/views/Login")
     },
     {
         name:"RegisterPage",
-        path:"/Register",
+        path:"/register",
         component:()=>import("@/views/Register")
     },
+    {
+        name:"NewBookmarkPage",
+        path:"/new",
+        component:()=>import("@/views/NewBookmark")
+    },
+    
 
 ]
 
