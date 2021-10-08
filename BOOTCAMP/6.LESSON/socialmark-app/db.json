@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "fullname": "omer iliski",
+      "username": "omer",
+      "password": "60e747fa355405f43b2528af3fb9a871faba67f4",
+      "id": 1
+    },
+    {
+      "fullname": "ali iliski",
+      "username": "ali",
+      "password": "a92020f9291a5a78a871ff7ea0a21020fd48f124",
+      "id": 2
+    }
+  ],
+  "bookmarks": [],
+  "kategories": []
+}
