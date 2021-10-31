@@ -11,10 +11,13 @@ export default createStore({
     mutations:{
         setUser(state, user){
             state.user=user;
+        },
+        logoutUser(state){
+            state.user=null;
         }
     },
     getters:{
-        _isAuthendicated:state =>state.user!=null,
+        _isAuthenticated:state =>state.user!=null,
         _getCurrentUser:(state)=>{
             const user=state.user;
             delete user?.password;
