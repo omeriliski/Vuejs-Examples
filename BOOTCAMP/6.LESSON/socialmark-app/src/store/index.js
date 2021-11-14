@@ -18,6 +18,7 @@ export default createStore({
     },
     getters:{
         _isAuthenticated:state =>state.user!=null,
+        _currentUserId:state=>state?.user?.id,
         _getCurrentUser:(state)=>{
             const user=state.user;
             delete user?.password;
