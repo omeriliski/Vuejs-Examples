@@ -12,14 +12,15 @@
 <script>
 import Sidebar from '@/components/Home/Sidebar';
 export default {
+    components:{
+        Sidebar
+    },
     data() {
         return {
             bookmarkList:[]
         }
     },
-    components:{
-        Sidebar
-    },
+    
     created() {
         this.$appAxios.get("/bookmarks?_expand=category&_expand=user").then(res=>{
             console.log(res);

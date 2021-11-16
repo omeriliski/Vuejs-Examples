@@ -15,7 +15,11 @@
       "username": "omer",
       "password": "60e747fa355405f43b2528af3fb9a871faba67f4",
       "id": 3,
-      "likes": [],
+      "likes": [
+        4,
+        7,
+        6
+      ],
       "bookmarks": []
     }
   ],

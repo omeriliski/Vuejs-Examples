@@ -13,4 +13,5 @@ app.component("AppBookmarkList",appBookmarkList);
 app.use(router);
 app.use(store);
 app.config.globalProperties.$appAxios = appAxios;
+app.config.globalProperties.$log = console.log;
 app.mount('#app');
