@@ -4,13 +4,19 @@
       "fullname": "ali iliski",
       "username": "ali",
       "password": "a92020f9291a5a78a871ff7ea0a21020fd48f124",
-      "id": 2
+      "id": 2,
+      "likes": [
+        2,
+        7
+      ]
     },
     {
       "fullname": "omer iliski",
       "username": "omer",
       "password": "60e747fa355405f43b2528af3fb9a871faba67f4",
-      "id": 3
+      "id": 3,
+      "likes": [],
+      "bookmarks": []
     }
   ],
   "bookmarks": [

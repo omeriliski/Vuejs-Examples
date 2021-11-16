@@ -21,8 +21,6 @@ const routes=[
         path:"/new",
         component:()=>import("@/views/NewBookmark")
     },
-    
-
 ]
 
 const router = createRouter({
