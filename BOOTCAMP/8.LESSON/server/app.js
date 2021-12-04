@@ -3,7 +3,7 @@ const express=require("express");
 const app=express();
 const http=require("http");
 
-const PORT=process.env.PORT || 2021;
+const PORT=process.env.PORT || 2022;
 
 const server=http.createServer(app);
 
@@ -19,8 +19,9 @@ server.listen(PORT,()=>{
     io.on("connection",socket=>{
         console.log(socket.id);
         socket.emit("WELCOME_MESSAGE",`Client number ${socket.id}, welcome...`);
-        socket.on("MESSAGE",(message)=>{
-            console.log("message",message); 
+        socket.on("NEW_BOOKMARK_EVENT",(bookmark)=>{
+            console.log("message",bookmark); 
+            io.emit("NEW_BOOKMARK_ADDED")
             // socket.emit("MESSAGE",message)
         })
     })
