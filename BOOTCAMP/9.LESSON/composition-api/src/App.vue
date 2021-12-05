@@ -1,21 +1,54 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div>
+    <h1>{{ title }}</h1>
+    <input type="text" v-model="title" />
+    <p>{{titleLengthMessage}}</p>
+    <button @click="toggleIt">toggleIt</button>
+    <p v-if="show">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam consectetur minus a voluptates repudiandae veniam quibusdam, natus cupiditate ratione aperiam!
+    </p>
+    <hr>
+    <button @click="counter++">{{counter}} {{oddOrEven}}</button>
+    <hr>
+    <input type="text" v-model="searchText">
+    <p v-if="isTyping">I'm writing...</p>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script>
+import Counter from "./composables/Counter.js";
+import Header from "./composables/Header.js";
+import Toggle from "./composables/Toggle.js";
+import Search from "./composables/Search.js";
+export default {
+  // data() {
+  //   return {
+  //     title:"Hallooo"
+  //   }
+  // },
+  // beforeCreate() {
+  //   console.log("beforeCreate");
+  // },
+  // created() {
+  //   console.log("created");
+  // },
+
+  setup() {
+    const {counter, oddOrEven}=Counter();
+    const {title,titleLengthMessage}=Header();
+    const {show, toggleIt}=Toggle();
+    const {searchText, isTyping}=Search();
+
+    return {
+      title,
+      show,
+      toggleIt,
+      titleLengthMessage,
+      counter,
+      oddOrEven,
+      searchText,
+      isTyping
+    };
+  },
+};
+</script>
