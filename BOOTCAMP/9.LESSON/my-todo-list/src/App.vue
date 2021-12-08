@@ -1,21 +1,18 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div class="w-full bg-gray-400 p-5">
+    <div class=" w-1/3 bg-gray-600 mx-auto p-2">
+      <h1 class=" text-center">Todo List</h1>
+      <AddTodo/>
+      <AddTodo/>
+    </div>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<script>
+import AddTodo from "./components/addTodo.vue";
+export default {
+  components:{
+    AddTodo
+  }
 }
-</style>
+</script>
