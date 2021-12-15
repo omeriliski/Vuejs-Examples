@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Test/>
     <input type="text" v-model="text" />
     <h3>{{ text }}</h3>
     <p v-if="isWriting">writing...</p>
@@ -8,7 +9,9 @@
 
 <script>
 import { ref, watch } from "vue";
+import Test from './components/test.vue'
 export default {
+  components:{Test},
   setup() {
     const text = ref("");
     const writing = ref("");
@@ -27,5 +30,5 @@ export default {
 
     return { text, writing,isWriting };
   },
-};
+}; 
 </script>
